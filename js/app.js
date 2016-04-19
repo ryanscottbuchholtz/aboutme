@@ -1,12 +1,17 @@
+var stickyAnchorTop = 0;
+
+$(document).ready(function() {
+  stickyAnchorTop = $('#sticky-anchor').offset().top;
+})
+
 function sticky() {
   var window_top = $(window).scrollTop();
-  var div_top = $('#sticky-anchor').offset().top;
-  console.log(window_top);
-  console.log(div_top);
-  if (window_top > div_top) {
-    $('#language').addClass('stick');
+  console.log(window_top + ' - ' + stickyAnchorTop);
+  
+  if (window_top > stickyAnchorTop) {
+    $('#sticky-anchor').addClass('stick');
   } else {
-    $('#language').removeClass('stick');
+    $('#sticky-anchor').removeClass('stick');
   }
 }
 
